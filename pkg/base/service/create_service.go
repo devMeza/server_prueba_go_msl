@@ -2,6 +2,7 @@ package base_service
 
 import (
 	helpers "main/pkg/base/helpers"
+	base_models "main/pkg/base/models"
 	models "main/pkg/base/models"
 )
 
@@ -34,7 +35,7 @@ func SaveService[T any](service *Service[T]) {
 }
 
 // InitGeneric inicializa un controlador genérico con un modelo y métodos opcionales.
-func Init[T any](c Methods[T]) *Service[T] {
+func Init[T any, M base_models.Model[T]](c Methods[T]) *Service[T] {
 	if c == nil {
 		m, _ := models.GetModel[T]()
 		if m == nil {

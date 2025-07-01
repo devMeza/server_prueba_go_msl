@@ -60,3 +60,7 @@ func (s *Service[T]) GetModel() models.Model[T] {
 	fmt.Printf("Obteniendo el modelo asociado al controlador: %s\n", s.Model.Name)
 	return s.Model // Retorna el modelo asociado al controlador
 }
+
+func (s *Service[T]) NewService() *Service[T] {
+	return &Service[T]{}
+}

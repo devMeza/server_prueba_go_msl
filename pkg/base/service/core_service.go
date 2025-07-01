@@ -21,6 +21,7 @@ type Methods[T any] interface {
 	Update(filter map[string]any, data T) error
 	Delete(filter map[string]any) error
 	GetModel() models.Model[T]
+	NewService() *Service[T]
 }
 
 // Mapa global de modelos (uso de sync.Map para concurrencia y tipos mixtos)
